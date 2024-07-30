@@ -1,0 +1,38 @@
+@if (route.children.length === 0) {
+    <div class="example-container">
+        <form class="login-form" #loginForm="ngForm">
+            <div class="background"></div>
+            <mat-card class="login-card">
+                <mat-card-header>
+                    <mat-card-title class="app-title">Forgot Password</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-form-field>
+                        <input matInput type="email" placeholder="Your email" name="email" [(ngModel)]="email" required>
+                    </mat-form-field>
+                </mat-card-content>
+    
+                <button mat-raised-button color="primary" (click)="sendMail()" [disabled]="!loginForm.valid">Send
+                    Mail</button>
+    
+                <div class="additional-links">
+                    <a routerLink="/login" class="forgot-password">Go to Login</a>
+                    <span class="separator">|</span>
+                    <a routerLink="/new-user" class="create-account">Create new account</a>
+                </div>
+    
+                @if (message) {
+                    <mat-toolbar>{{message}}</mat-toolbar>
+                }
+    
+            </mat-card>
+    
+        </form>
+    
+    </div>
+}
+    
+    
+    @if (route.children.length !== 0) {
+    <router-outlet />
+    }

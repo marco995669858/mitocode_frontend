@@ -1,0 +1,76 @@
+<form [formGroup]="form" class="example-container mb-4" (submit)="operate()">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h3>Signos Vitales</h3>
+        </div>
+        <div [hidden]="true">
+            <mat-form-field>
+                <input matInput placeholder="ID" required formControlName="idSigns">
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 paciente flex">
+            <mat-form-field>
+                <mat-label>Patient</mat-label>
+                <input matInput formControlName="patient" [matAutocomplete]="autoPatient"
+                    [formControl]="patientControl">
+                <mat-autocomplete #autoPatient="matAutocomplete" [displayWith]="showPatient">
+                    @for (p of patients$ | async; track $index) {
+                    <mat-option [value]="p">
+                        {{p.firstName}} {{p.lastName}}
+                    </mat-option>
+                    }
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-icon matTooltip="Nuevo Paciente" color="primary" (click)="openDialog()">add_circle</mat-icon>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="registrationDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                @if (f['registrationDate'].errors?.['required'] && f['registrationDate'].touched){
+                    <small class="invalid">Is required</small>
+                    }
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Temperatura</mat-label>
+                <input matInput placeholder="Temperatura" required formControlName="temperature">
+                @if (f['temperature'].errors?.['required'] && f['temperature'].touched) {
+                <small class="invalid">Is required</small>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Pulso</mat-label>
+                <input matInput placeholder="Paciente" required formControlName="pulse">
+                @if (f['pulse'].errors?.['required'] && f['pulse'].touched) {
+                <small class="invalid">Is required</small>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field>
+                <mat-label>Ritmo Respiratorio</mat-label>
+                <input matInput placeholder="Paciente" required formControlName="respiratoryRate">
+                @if (f['respiratoryRate'].errors?.['required'] && f['respiratoryRate'].touched) {
+                <small class="invalid">Is required</small>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-12 text-center">
+            <button mat-button color="primary" type="submit">
+                <mat-icon>done</mat-icon>
+                <span>Done</span>
+            </button>
+            <button mat-button color="accent" type="button" routerLink="/pages/vital-signs">
+                <mat-icon>cancel</mat-icon>
+                <span>Cancel</span>
+            </button>
+        </div>
+    </div>
+</form>

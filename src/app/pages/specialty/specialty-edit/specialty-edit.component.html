@@ -1,0 +1,40 @@
+<form [formGroup]="form" class="example-container" (submit)="operate()">
+
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="ID" required formControlName="idSpecialty">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <input matInput placeholder="name" required formControlName="name">
+        @if (f['name'].errors?.['required'] && f['name'].touched) {
+            <small class="invalid">Is required</small>
+        }
+
+        @if (f['name'].errors?.['minlength'] && f['name'].touched) {
+            <small class="invalid">Minlength is 3</small>
+        }
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="description" required formControlName="description">
+        @if (f['description'].errors?.['required'] && f['description'].touched) {
+            <small class="invalid">Is required</small>
+        }
+
+        @if (f['description'].errors?.['minlength'] && f['description'].touched) {
+            <small class="invalid">Minlength is 3</small>
+        }
+    </mat-form-field>
+   
+    <button mat-button color="primary" type="submit">
+        <mat-icon>done</mat-icon>
+        <span>Done</span>
+    </button>
+
+    <button mat-button color="accent" type="button" routerLink="/pages/specialty">
+        <mat-icon>cancel</mat-icon>
+        <span>Cancel</span>
+    </button>
+</form>

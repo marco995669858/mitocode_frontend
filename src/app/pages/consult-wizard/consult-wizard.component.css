@@ -1,0 +1,96 @@
+.medic-selected .medic-title {
+    color: blue; /* Cambiar el color del texto */
+    font-size: 1.2em; /* Aumentar el tamaño del texto */
+  }
+  
+
+.consultCSS{
+    background: rgb(2, 95, 68);
+    color: white;
+}
+
+.fixedRigth {
+    top: auto !important;
+    right: 20px !important;
+    bottom: 10px !important;
+    left: auto !important;
+    position: fixed !important;
+}
+
+.fixedLeft {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10px !important;
+    left: 20px !important;
+    position: fixed !important;
+}
+
+
+.medic-selected {
+    box-shadow: 0 0 20px rgba(0,0,0,0.7); /* Aumentar el efecto de sombra */
+    border: 2px solid rgb(34, 0, 255); /* Cambiar el borde del card */
+    transition: box-shadow 0.3s ease, border 0.3s ease; /* Agregar transiciones suaves */
+  }
+  
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilos para los campos de formulario */
+.form-container form {
+    width: 100%;
+}
+
+/* Estilos para los campos de formulario dentro del contenedor */
+.form-container mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones dentro del contenedor */
+.form-container button {
+    margin-top: 20px;
+}
+
+/* Estilos para la lista de exámenes seleccionados dentro del contenedor */
+.form-container mat-list {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Estilos para las tarjetas de médicos dentro del contenedor */
+.form-container .mat-card {
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.form-container .mat-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el título del médico seleccionado dentro del contenedor */
+.form-container .medic-title {
+    color: #1976d2; /* Color azul primario */
+}
+
+/* Estilos para las imágenes dentro de las tarjetas dentro del contenedor */
+.form-container mat-card img {
+    cursor: pointer;
+}
+
+/* Estilos para el botón SELECT dentro del contenedor */
+.form-container .mat-card-actions button {
+    width: 100%;
+}
+
+/* Estilos para el botón Next dentro del contenedor */
+.form-container button[matStepperNext] {
+    margin-top: 30px;
+}
